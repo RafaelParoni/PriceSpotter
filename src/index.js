@@ -1,7 +1,7 @@
   import React from 'react';
   import ReactDOM from 'react-dom/client';
   import './index.css';
-  import App from './App';
+  import SoonPage from './Pages/SoonPage/Soon.js';
 
   var pathname = window.location.pathname
   var lang = 'en'
@@ -96,6 +96,6 @@
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <React.StrictMode>
-      <App />
+      <SoonPage />
     </React.StrictMode>
   );
