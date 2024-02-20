@@ -62,6 +62,15 @@
 
   function langValicacao(langV, pathname){
 
+    if(pathname === ''){
+      console.log(`pathname: ${pathname}`)
+      if(langV !== ""){
+        console.log(`langV: ${langV}`)
+        window.location = `${langV}/`
+      }
+      return
+    }
+
     if(window.sessionStorage.getItem("session") === 'true'){
 
       if(pathname !== window.sessionStorage.getItem("lang")){
