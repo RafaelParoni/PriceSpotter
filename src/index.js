@@ -10,27 +10,18 @@
     console.log("Primeira vez entrando por este dispositivo!")
     console.log(`Idioma preferido de seu dispositivo: ${window.navigator.language}`)
     var prefLang = window.navigator.language
-    switch (prefLang){
-      case 'pt-BR':
-        console.log('idioma do site definido como: pt-br')
-        lang = 'pt-br'
-      break;
-      case 'pt':
-        console.log('idioma do site definido como: pt')
-        lang = 'pt'
-      break;
-      case 'en':
-        console.log('language defined as: en')
-        lang = 'en'
-      break;
-      case 'en-US':
-        lang = 'en-us'
-        console.log('language defined as: en-us')
-      break;
-      default:
-        console.log("We didn't find your preferred language in our language database :c so we are setting the site's language to default English")
-        lang = 'en'
-      break;
+    if(prefLang.includes('pt')){
+      console.log('idioma do site definido como: pt')
+      lang = 'pt'
+    }else if(prefLang.includes('en')){
+      console.log('language defined as: en')
+      lang = 'en'
+    }else if(prefLang.includes('es')){
+      console.log('language defined as: en')
+      lang = 'es'
+    }else{
+      console.log("We didn't find your preferred language in our language database :c so we are setting the site's language to default English")
+      lang = 'en'
     }
 
     window.localStorage.setItem('lang', lang)
