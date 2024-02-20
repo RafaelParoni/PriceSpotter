@@ -7,7 +7,7 @@
     flex-direction: column;
     color: #fff;
     background: rgb(51,51,51);
-    background: radial-gradient(circle, rgba(51,51,51,1) 0%, rgba(14,15,15,1) 100%);
+    background: radial-gradient(circle, rgba(51,51,51,1) 0%, hsl(180, 3%, 6%) 100%);
 }
 .soon-idioma {
     display: flex;
@@ -17,4 +17,10 @@
     top: 5px;
     width: 100vw;
     padding: 5px 0 5px 0;
+    color: #fff;
+}
+.soon-idioma select {
+    background-color: #000;
+    color: #fff;
+    border: none;
 }
