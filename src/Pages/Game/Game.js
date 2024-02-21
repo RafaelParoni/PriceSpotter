@@ -1,14 +1,14 @@
-import './App.css';
+import './Game.css';
 
-function App() {
+function GamePage() {
 
   return (
     <div className="App">
       <header className="App-header">
-       <h1>Demo Ativada</h1>
+       <h1>GAME PAGE</h1>
       </header>
     </div>
   );
 }
 
-export default App;
+export default GamePage;
