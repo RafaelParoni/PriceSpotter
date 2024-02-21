@@ -2,6 +2,7 @@
   import ReactDOM from 'react-dom/client';
   import './index.css';
   import SoonPage from './Pages/SoonPage/Soon.js';
+  import App from './App.js';
 
   var pathname = window.location.pathname
   var lang = 'en'
@@ -83,12 +84,25 @@
     }
   }
 
+
   const root = ReactDOM.createRoot(document.getElementById('root'));
-  root.render(
-    <React.StrictMode>
-      <SoonPage />
-    </React.StrictMode>
-  );
+
+  console.log(window.localStorage)
+  if(window.localStorage.getItem("demo") === 'DEMO-ACTIVATED'){
+    console.log("Ativando demo")
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  }else{
+    console.log('Demo não ativada')
+    root.render(
+      <React.StrictMode>
+        <SoonPage />
+      </React.StrictMode>
+    );
+  }
 
 
   export {lang};
