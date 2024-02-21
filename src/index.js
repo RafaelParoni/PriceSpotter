@@ -1,8 +1,19 @@
   import React from 'react';
   import ReactDOM from 'react-dom/client';
   import './index.css';
+
+
+  // importante paginas
+
+
+  // em breve
   import SoonPage from './Pages/SoonPage/Soon.js';
-  import App from './App.js';
+
+  // paginas 
+  import HomePage from './Pages/Home/Home.js';
+  import SearchPage from './Pages/search/Search.js';
+  import GamePage from './Pages/Game/Game.js';
+  import NotFoundPage from './Pages/NotFound/NotFound.js';
 
   var pathname = window.location.pathname
   var lang = 'en'
@@ -87,14 +98,49 @@
 
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
-  console.log(window.localStorage)
   if(window.localStorage.getItem("demo") === 'DEMO-ACTIVATED'){
     console.log("Ativando demo")
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
+    let lang = `/${pathname}/`
+    let path = window.location.pathname.replace(lang, '')
+
+    if(path.includes('/') === true){
+      path = path.slice(0, path.lastIndexOf('/'))
+    }
+    if(path === ''){
+      path = 'home'
+    }
+
+    switch(path){
+      case 'game':
+          root.render(
+            <React.StrictMode>
+              <GamePage />
+            </React.StrictMode>
+          );
+        break;
+      case 'search':
+          root.render(
+            <React.StrictMode>
+              <SearchPage />
+            </React.StrictMode>
+          );
+        break;
+      case 'home':
+          root.render(
+            <React.StrictMode>
+              <HomePage />
+            </React.StrictMode>
+          );
+        break;
+      default:
+          root.render(
+            <React.StrictMode>
+              <NotFoundPage />
+            </React.StrictMode>
+          );
+        break;
+    }
+
   }else{
     console.log('Demo não ativada')
     root.render(
