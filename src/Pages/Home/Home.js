@@ -3,7 +3,6 @@ import './Home.css';
 import { freeGamelist } from '../../Components/Epic Games/freeGameList';
 
 
-import NavbarComp from '../../Components/Navbar/Navbar';
 
 function HomePage() {
 
@@ -13,7 +12,6 @@ function HomePage() {
 
   return (
     <>
-      <NavbarComp/>
       <div className="Home">
         
       </div>
