@@ -1,0 +1,31 @@
+.Navbar {
+    background-color: green;
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin-inline: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.navbar-search {
+    background-color: red;
+    width: 100px;
+}
+.navbar-extra {
+    background-color: palevioletred;
+    width: 100px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .navbar-logo h2 {
+        display: none;
+    }
+  }
