@@ -15,6 +15,11 @@
   import GamePage from './Pages/Game/Game.js';
   import NotFoundPage from './Pages/NotFound/NotFound.js';
 
+
+  // componentes
+
+  import NavbarComp from './Components/Navbar/Navbar.js';
+
   var pathname = window.location.pathname
   var lang = 'en'
 
@@ -112,6 +117,7 @@
       case 'game':
           root.render(
             <React.StrictMode>
+              <NavbarComp/>
               <GamePage />
             </React.StrictMode>
           );
@@ -119,6 +125,7 @@
       case 'search':
           root.render(
             <React.StrictMode>
+              <NavbarComp/>
               <SearchPage />
             </React.StrictMode>
           );
@@ -126,6 +133,7 @@
       case 'home':
           root.render(
             <React.StrictMode>
+              <NavbarComp/>
               <HomePage />
             </React.StrictMode>
           );
@@ -133,6 +141,7 @@
       default:
           root.render(
             <React.StrictMode>
+              <NavbarComp/>
               <NotFoundPage />
             </React.StrictMode>
           );
