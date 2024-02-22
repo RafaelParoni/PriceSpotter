@@ -42,7 +42,7 @@ function NavbarComp() {
 
   return (
     <div className="Navbar">
-        <div className='navbar-logo' onClick={()=> console.log('teste')}>
+        <div className='navbar-logo' onClick={()=> window.location = `/${window.localStorage.getItem('lang')}/`}>
             <img src={logo356} height={50} alt="logos" />
             <h2>Price Spotter</h2>
         </div>
