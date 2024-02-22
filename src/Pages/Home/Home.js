@@ -2,6 +2,9 @@ import './Home.css';
 
 import { freeGamelist } from '../../Components/Epic Games/freeGameList';
 
+
+import NavbarComp from '../../Components/Navbar/Navbar';
+
 function HomePage() {
 
   freeGamelist().then(function(result){
@@ -9,11 +12,12 @@ function HomePage() {
   })
 
   return (
-    <div className="App">
-      <header className="App-header">
-       <h1>Home</h1>
-      </header>
-    </div>
+    <>
+      <NavbarComp/>
+      <div className="Home">
+        
+      </div>
+    </>
   );
 }
 
