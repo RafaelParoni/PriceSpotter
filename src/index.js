@@ -39,11 +39,9 @@
     window.localStorage.setItem('lang', lang)
 
   }else { // se já tem ele avisa no console.log o idioma selecionado e define a variavel 'lang' para o idioma do localStorage.
-    if(window.sessionStorage.getItem('session') !== 'true'){
       console.log(`Language selects by LocalStorage was: ${window.localStorage.getItem('lang')}, As soon as you log in to your account, the site will search for the account's defined language!`)
       lang = window.localStorage.getItem("lang")
       console.log(lang)
-    }
   }
   pathname = pathname.slice(1, pathname.length)
   pathname = pathname.slice(0, pathname.indexOf('/'))
