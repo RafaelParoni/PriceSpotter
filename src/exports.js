@@ -14,6 +14,9 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "NotFoundNews": 'No news found.',
             "ViewNews": "See all news",
             "ReportBug": "Report a bug/error",
+
+            "EpicCardFree": "FREE NOW",
+            "EpicCardComing": "FREE COMING SOON",
         }
     },
     "pt": {
@@ -29,6 +32,9 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "NotFoundNews": 'Nenhuma notícia encontrada.',
             "ViewNews": "Ver todas as notícias",
             "ReportBug": "Relatar algum bug/erro",
+
+            "EpicCardFree": "GRATÍS AGORA",
+            "EpicCardComing": "GRATÍS EM BREVE",
         },
     },
     'es': {
@@ -44,6 +50,9 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "NotFoundNews": 'No se encontraron noticias.',
             "ViewNews": "Ver todas las noticias",
             "ReportBug": "Informar un error",
+
+            "EpicCardFree": "LIBRE AHORA",
+            "EpicCardComing": "GRATIS PRÓXIMAMENTE",
         },
     },
 }
