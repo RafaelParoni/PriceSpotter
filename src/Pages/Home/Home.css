@@ -12,14 +12,23 @@
     padding: 15px;
     margin-top: 50px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(950px, 85%);
+    
 }
 .epic-cards {
-    grid-gap: 15px;
+    grid-gap: 10px;
     display: flex;
     align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 .epic-cards div {
-    width: 450px;
+    width: min(450px, 90%);
     background-color: #1d1d1d;
     border-radius: 15px;
     cursor: pointer;
@@ -35,7 +44,7 @@
     background-color: #D43A3A;
 }
 .epic-cards div img {
-    width: 450px;
+    width: 100%;
     margin: 0;
 }
 .epic-cards h5, h2 {
@@ -46,9 +55,10 @@
     background-color: #2A2A2A;
     padding: 15px;
     border-radius: 15px;
+    width: 950px;
 }
 .news-card {
-    width: 100vh;
+    width: 950px;
     height: 250px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -133,3 +143,46 @@
     align-items: center;
     justify-content: center;
 }
+
+@media only screen and (max-width: 950px) {
+    .home-news {
+        background-color: #2A2A2A;
+        padding: 15px;
+        border-radius: 15px;
+        width: 85%;
+    }
+    .news-card {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #1d1d1d;
+        border-radius: 15px;
+        padding: 50px 0 50px 0;
+        grid-gap: 15px;
+    }
+    .news-title { 
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+    }
+    .news-img {
+        display: flex;
+        justify-content: center;
+    }
+    .news-img img {
+        width: 80%;
+    }
+    .news-links { 
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        grid-gap: 7px;
+    }
+    .news-description { 
+        text-align: center;
+    }
+  }
