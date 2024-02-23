@@ -6,17 +6,44 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "Title": "Page not found",
             "Button": 'Back to start',
         },
+        "Home": {
+            "TitleFreeGame": 'Epic games free games',
+            "TitleNews": 'Latest news',
+            "NewsType": 'Theme',
+            'NotFoundLinks': 'there is no link.',
+            "NotFoundNews": 'No news found.',
+            "ViewNews": "See all news",
+            "ReportBug": "Report a bug/error",
+        }
     },
     "pt": {
         "NotFound": {
             "Title": "Pagina não encontrada",
             "Button": 'Voltar ao início',
         },
+        "Home": {
+            "TitleFreeGame": 'Epic games jogos gratís',
+            "TitleNews": 'Última notícia',
+            "NewsType": 'Tema',
+            'NotFoundLinks': 'não há nenhum link.',
+            "NotFoundNews": 'Nenhuma notícia encontrada.',
+            "ViewNews": "Ver todas as notícias",
+            "ReportBug": "Relatar algum bug/erro",
+        },
     },
     'es': {
         "NotFound": {
             "Title": "Página no encontrada",
             "Button": 'De regreso al comienzo',
+        },
+        "Home": {
+            "TitleFreeGame": 'Epic games juegos gratis',
+            "TitleNews": 'Última noticia',
+            "NewsType": 'Tema',
+            'NotFoundLinks': 'no hay ningún vínculo.',
+            "NotFoundNews": 'No se encontraron noticias.',
+            "ViewNews": "Ver todas las noticias",
+            "ReportBug": "Informar un error",
         },
     },
 }
