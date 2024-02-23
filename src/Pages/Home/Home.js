@@ -10,7 +10,25 @@ import { SearchGameNews } from '../../Components/firebase/SearchNews';
 
 import { LuGift, LuSendHorizonal, LuPalmtree, LuCrown, LuLink, LuInfo, LuCookie } from 'react-icons/lu'
 
+import { Languages } from '../../exports';
+
+
 function HomePage() {
+
+  var langL = window.localStorage.getItem('lang')
+  var langA = {}
+
+  switch(langL){
+    case "pt":
+      langA = Languages.pt.Home
+    break;
+    case "es":
+      langA = Languages.es.Home
+    break;
+    default: 
+      langA = Languages.en.Home
+    break;
+  }
   
   var [freeGame, setFreeGame] = useState([])
   var [freeGameComing, setFreeGameComing] = useState([])
@@ -50,7 +68,7 @@ function HomePage() {
     return (
         <div onClick={()=> window.open(item.appUrl)}> 
           <img alt='Game free - store.epicgames.com' src={item.offerImageWide} />
-          <h4>FREE NOW</h4>
+          <h4>{langA.EpicCardFree}</h4>
           <h2>{item.name}</h2> 
           <h5>{descirption01}</h5> 
         </div>
@@ -68,7 +86,7 @@ function HomePage() {
     return (
       <div onClick={()=> window.open(item.appUrl)}> 
         <img alt='Game free coming soon - store.epicgames.com' src={item.offerImageTall} /> 
-        <h4>COMING SOON</h4>
+        <h4>{langA.EpicCardComing}</h4>
         <h2>{item.name}</h2> 
         <h5>{descirption02} </h5>
       </div>
@@ -94,14 +112,14 @@ function HomePage() {
     <>
       <div className="Home">
         <div className='home-epic-free'>
-          <h2><LuGift/> Epic Games Free</h2>
+          <h2><LuGift/> {langA.TitleFreeGame}</h2>
           <div className='epic-cards'>
             {freeGame.map((freeGame) => <FreeGameDisplay key={freeGame.name} item={freeGame} />)}
             {freeGameComing.map((freeGameComing) => <FreeGameComingDisplay key={freeGameComing.name} item={freeGameComing} />)}
           </div>
         </div>
         <div className='home-news'>
-          <h1><LuCrown/> Ultima noticias: </h1>
+          <h1><LuCrown/> {langA.TitleNews} </h1>
           {Object.keys(gameNews).length > 0 && (
             <div className="news-card">
               <div className="news-title"> {gameNews[gameNews.length -1].name} </div>
@@ -111,22 +129,22 @@ function HomePage() {
                 <p><LuLink/> Links:</p>
                 {gameNews[gameNews.length -1].link1 !== 'false' && (<a href={gameNews[gameNews.length -1].link1}> <LuSendHorizonal/> {gameNews[gameNews.length -1].link1_text}</a>)}
                 {gameNews[gameNews.length -1].link2 !== 'false' && (<a href={gameNews[gameNews.length -1].link2}> <LuSendHorizonal/> {gameNews[gameNews.length -1].link2_text}</a>)}
-                {gameNews[gameNews.length -1].link2 === 'false' & gameNews[gameNews.length -1].link1 === 'false' &&(<p style={{cursor: 'no-drop'}}> Nenhum link <LuPalmtree/> </p>)}
+                {gameNews[gameNews.length -1].link2 === 'false' & gameNews[gameNews.length -1].link1 === 'false' &&(<p style={{cursor: 'no-drop'}}> {langA.NotFoundLinks}<LuPalmtree/> </p>)}
               </div>
               <div className="news-type"> 
-                <h5><LuInfo/> Tema: </h5>
+                <h5><LuInfo/> {langA.NewsType}: </h5>
                 <p>{gameNews[gameNews.length -1].type}</p>
               </div>
             </div>
           )}
           {Object.keys(gameNews).length === 0 && (
             <div className="news-card no-news">
-              <h1>Nenhum noticia <LuCookie /></h1>
+              <h1>{langA.NotFoundNews} <LuCookie /></h1>
             </div>
           )}
           <div className='news-footer'>
-            <a href={`/${window.localStorage.getItem('lang')}/news`}>Ver todas as noticias</a>
-            <a href={`/${window.localStorage.getItem('lang')}/bug`}>Relar algum bug/erro</a>
+            <a href={`/${window.localStorage.getItem('lang')}/news`}>{langA.ViewNews}</a>
+            <a href={`/${window.localStorage.getItem('lang')}/bug`}>{langA.ReportBug}</a>
           </div>
         </div>
         <div>
