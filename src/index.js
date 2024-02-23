@@ -14,6 +14,7 @@
   import SearchPage from './Pages/search/Search.js';
   import GamePage from './Pages/Game/Game.js';
   import NotFoundPage from './Pages/NotFound/NotFound.js';
+  import NewsListPage from './Pages/News/NewsList/NewsList.js';
 
 
   // componentes
@@ -135,6 +136,22 @@
               <>
                 <NavbarComp/>
                 <HomePage />
+              </>
+          );
+        break;
+        case 'news':
+          root.render(
+              <>
+                <NavbarComp/>
+                <NewsListPage/>
+              </>
+          );
+        break;
+        case 'report-bug':
+          root.render(
+              <>
+                <NavbarComp/>
+                <SoonPage/>
               </>
           );
         break;
