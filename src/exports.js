@@ -1,3 +1,5 @@
+
+
 var Languages = { // Traduções de paginas para EN, PT e ES
     "en": {
         "NotFound": {
@@ -20,3 +22,9 @@ var Languages = { // Traduções de paginas para EN, PT e ES
 }
 
 export {Languages} // Exportando Languages
+
+
+const FIREBASE_API_KEY = process.env.REACT_APP_FIRABSE_KEY
+
+
+export {FIREBASE_API_KEY}
