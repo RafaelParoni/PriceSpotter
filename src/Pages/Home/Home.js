@@ -4,17 +4,18 @@ import { useState } from 'react';
 
 import { freeGamelist } from '../../Components/Epic Games/freeGameList';
 import { freeGameComingSoonList } from '../../Components/Epic Games/freeGameComingSoon';
-import { translateAPI } from '../../Components/Translate/translate';
+import { translateAPI } from '../../Components/TranslateAPI/translate';
+
+import { steamRandomGames } from '../../Components/Steam/steamRandomGames';
 
 import { LuGift } from 'react-icons/lu'
 
 function HomePage() {
-
-
+  
   var [freeGame, setFreeGame] = useState([])
   var [freeGameComing, setFreeGameComing] = useState([])
 
-  const SearchFreeGame = () => {
+  function SearchFreeGame(){
     if(Object.keys(freeGame).length > 0){return}else{
       freeGamelist().then(function(result){
         setFreeGame(result)
@@ -22,7 +23,7 @@ function HomePage() {
     }
   }
   SearchFreeGame()
-  const SearchFreeGameComing = () => {
+  function SearchFreeGameComing(){
     if(Object.keys(freeGameComing).length > 0){return}else{
       freeGameComingSoonList().then(function(result){
         setFreeGameComing(result)
@@ -30,6 +31,8 @@ function HomePage() {
     }
   }
   SearchFreeGameComing()
+
+ 
 
 
 
@@ -66,11 +69,12 @@ function HomePage() {
         <img alt='Game free coming soon - store.epicgames.com' src={item.offerImageTall} /> 
         <h4>COMING SOON</h4>
         <h2>{item.name}</h2> 
-        <h5>{descirption02} </h5> 
+        <h5>{descirption02} </h5>
       </div>
     )
   }
   
+
 
 
 
