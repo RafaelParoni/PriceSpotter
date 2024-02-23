@@ -11,6 +11,7 @@
     backdrop-filter: blur(13.7px);
     -webkit-backdrop-filter: blur(13.7px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.39);
+    z-index: 2;
 }
 
 .navbar-logo {
@@ -86,10 +87,79 @@ input[type="search"]::-webkit-search-results-decoration {
 
 
 .navbar-extra {
-    background-color: palevioletred;
     width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+}
+.navbar-extra button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    
+}
+.navbar-extra button:hover {
+    transform: scale(1.05);
+}
+.extra-content {
+    display: none;
+    width: 200px;
+    position: absolute;
+    right: 5px;
+    top: 52px;
+    z-index: 2;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.41);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: 1s;
+}
+.extra-content h3{
+    text-align: center;
+    width: 100%;
+    color: #D43A3A;
+    margin: 0;
+    cursor: pointer;
 }
 
+.extra-options {
+    background-color: transparent;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-top: 1px solid #fff;
+    color: #FFF;
+    cursor: pointer;
+    margin: 0;
+    transition: 0.5s;
+}
+.extra-options:nth-last-child(1){
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+.extra-options:hover{
+    background-color: #fff;
+    color: #000;
+}
+#extraContentClose {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: none;
+    z-index: 0;
+}
 
 @media only screen and (max-width: 690px) {
     .navbar-logo h2 {
