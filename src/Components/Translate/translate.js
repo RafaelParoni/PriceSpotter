@@ -25,8 +25,8 @@ export async function translateAPI(text, to){
 
     try {
       const response = await axios.request(options);
-        console.log(response)
+        return response.data[0].translations[0].text
     } catch (error) {
-      console.error(error);
+        return 'error'
     }
 }
