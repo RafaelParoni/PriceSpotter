@@ -6,7 +6,6 @@ import { freeGamelist } from '../../Components/Epic Games/freeGameList';
 import { freeGameComingSoonList } from '../../Components/Epic Games/freeGameComingSoon';
 import { translateAPI } from '../../Components/TranslateAPI/translate';
 
-import { steamRandomGames } from '../../Components/Steam/steamRandomGames';
 
 import { LuGift } from 'react-icons/lu'
 
