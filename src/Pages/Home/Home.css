@@ -1,5 +1,46 @@
 .Home {
-    width: 100vw;
-    height: calc(100vh - 50px);
     padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+.home-epic-free {
+    background-color: #2A2A2A;
+    padding: 15px;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+.epic-cards {
+    grid-gap: 15px;
+    display: flex;
+    align-items: center;
+}
+.epic-cards div {
+    width: 450px;
+    background-color: #1d1d1d;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.epic-cards div:hover {
+    background-color: #353535;
+}
+.epic-cards h4 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #D43A3A;
+}
+.epic-cards div img {
+    width: 450px;
+    margin: 0;
+}
+.epic-cards h5, h2 {
+    padding: 5px;
+}
+.home-news {
+    width: 500px;
+    height: 200px;
+    background-color: yellow;
 }
