@@ -132,10 +132,10 @@
         break;
       case 'home':
           root.render(
-            <React.StrictMode>
-              <NavbarComp/>
-              <HomePage />
-            </React.StrictMode>
+              <>
+                <NavbarComp/>
+                <HomePage />
+              </>
           );
         break;
       default:
