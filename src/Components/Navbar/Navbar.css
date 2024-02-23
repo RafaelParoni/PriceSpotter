@@ -111,7 +111,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .extra-content {
     display: none;
     width: 200px;
-    position: absolute;
+    position: fixed;
     right: 5px;
     top: 52px;
     z-index: 2;
@@ -154,7 +154,7 @@ input[type="search"]::-webkit-search-results-decoration {
     color: #000;
 }
 #extraContentClose {
-    width: 100vw;
+    width: 99vw;
     height: 100vh;
     position: absolute;
     display: none;
