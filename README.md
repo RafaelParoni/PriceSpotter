@@ -10,4 +10,4 @@
 <h5> Para sair da demo basta colocar o comando novamente sem o Código: window.localStorage.setItem('demo', ' ') </h5>
 
 
-<h6>Version: 0.6.5 </h6>
+<h6>Version: 0.7.0 </h6>
