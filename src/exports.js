@@ -42,7 +42,7 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "EpicCardComing": "GRATÍS EM BREVE",
         },
         "News": {
-            "TitleNews": 'Última notícia',
+            "TitleNews": 'Últimas notícias',
             "NewsType": 'Tema',
             'NotFoundLinks': 'não há nenhum link.',
         }
@@ -65,7 +65,7 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "EpicCardComing": "GRATIS PRÓXIMAMENTE",
         },
         "News": {
-            "TitleNews": 'Última noticia',
+            "TitleNews": 'Últimas noticias',
             "NewsType": 'Tema',
             'NotFoundLinks': 'no hay ningún vínculo.',
         }
