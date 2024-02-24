@@ -17,6 +17,11 @@ var Languages = { // Traduções de paginas para EN, PT e ES
 
             "EpicCardFree": "FREE NOW",
             "EpicCardComing": "FREE COMING SOON",
+        },
+        "News": {
+            "TitleNews": 'Latest news',
+            "NewsType": 'Theme',
+            'NotFoundLinks': 'there is no link.',
         }
     },
     "pt": {
@@ -36,6 +41,11 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "EpicCardFree": "GRATÍS AGORA",
             "EpicCardComing": "GRATÍS EM BREVE",
         },
+        "News": {
+            "TitleNews": 'Última notícia',
+            "NewsType": 'Tema',
+            'NotFoundLinks': 'não há nenhum link.',
+        }
     },
     'es': {
         "NotFound": {
@@ -54,6 +64,11 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "EpicCardFree": "LIBRE AHORA",
             "EpicCardComing": "GRATIS PRÓXIMAMENTE",
         },
+        "News": {
+            "TitleNews": 'Última noticia',
+            "NewsType": 'Tema',
+            'NotFoundLinks': 'no hay ningún vínculo.',
+        }
     },
 }
 
