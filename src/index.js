@@ -17,7 +17,6 @@
   import NewsListPage from './Pages/News/NewsList/NewsList.js';
   import { ReportBugs } from './Pages/bugs/ReportBugs.js';
 
-
   // componentes
 
   import NavbarComp from './Components/Navbar/Navbar.js';

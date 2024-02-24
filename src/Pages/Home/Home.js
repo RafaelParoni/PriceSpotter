@@ -13,7 +13,7 @@ import { LuGift, LuSendHorizonal, LuPalmtree, LuCrown, LuLink, LuInfo, LuCookie 
 import { Languages } from '../../exports';
 
 
-function HomePage() {
+function HomePage() { 
 
   var langL = window.localStorage.getItem('lang')
   var langA = {}

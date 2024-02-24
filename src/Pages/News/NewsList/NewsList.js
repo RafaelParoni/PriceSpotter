@@ -8,6 +8,7 @@ import { SearchGameNews } from '../../../Components/firebase/SearchNews';
 
 import { Languages } from '../../../exports';
 
+
 function NewsListPage() {
 
     var langL = window.localStorage.getItem('lang')
