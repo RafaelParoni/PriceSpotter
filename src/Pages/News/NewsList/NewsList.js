@@ -6,8 +6,25 @@ import { LuSendHorizonal, LuPalmtree, LuCrown, LuLink, LuInfo } from 'react-icon
 
 import { SearchGameNews } from '../../../Components/firebase/SearchNews';
 
+import { Languages } from '../../../exports';
 
 function NewsListPage() {
+
+    var langL = window.localStorage.getItem('lang')
+    var langA = {}
+
+    switch(langL){
+        case "pt":
+        langA = Languages.pt.News
+        break;
+        case "es":
+        langA = Languages.es.News
+        break;
+        default: 
+        langA = Languages.en.News
+        break;
+    }
+
     var [gameNews, setGameNews] = useState([])
 
     function GetGameNews(){
@@ -29,20 +46,21 @@ function NewsListPage() {
                     <p><LuLink/> Links:</p>
                     {item.link1 !== 'false' && (<a href={item.link1}> <LuSendHorizonal/> {item.link1_text}</a>)}
                     {item.link2 !== 'false' && (<a href={item.link2}> <LuSendHorizonal/> {item.link2_text}</a>)}
-                    {item.link2 === 'false' & item.link1 === 'false' && (<p style={{cursor: 'no-drop'}}> Não link<LuPalmtree/> </p>)}
+                    {item.link2 === 'false' & item.link1 === 'false' && (<p style={{cursor: 'no-drop'}}> {langA.NotFoundLinks}<LuPalmtree/> </p>)}
                 </div>
                 <div className="news-type"> 
-                    <h5><LuInfo/> Tema: </h5>
+                    <h5><LuInfo/> {langA.NewsType}: </h5>
                     <p>{item.type}</p>
                 </div>
             </div>
         )
     }
 
+
   return (
     <div className="NewsPage">
         <div className='news-list'>
-            <h1> <LuCrown/> Noticias:</h1>
+            <h1> <LuCrown/> {langA.TitleNews}:</h1>
             {Object.keys(gameNews).length === 0 && (
                 <h1>Carregando</h1>
             )}
