@@ -11,7 +11,7 @@
 .search-value {
     background-color: #1d1d1d;
     border-radius: 15px;
-    width: 100vh;
+    width: 80vw;
     display: block;
     padding: 10px;
     grid-gap: 5px;
@@ -22,7 +22,7 @@
 }
 .search-results {
     background-color: #1d1d1d;
-    width: 100vh;
+    width: 80vw;
     padding: 10px;
     border-radius: 15px;
     display: flex;
