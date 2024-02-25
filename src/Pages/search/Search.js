@@ -112,7 +112,7 @@ function SearchPage() {
     }
 
     return (
-      <div onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/${GameNameValue}`}} className='results-card'>
+      <div onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
           <div className="card-img"> 
             <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
           </div>
