@@ -1,0 +1,139 @@
+.SearchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    grid-gap: 10px;
+}
+
+/* 2A2A2A  1d1d1d*/
+.search-value {
+    background-color: #1d1d1d;
+    border-radius: 15px;
+    width: 100vh;
+    display: block;
+    padding: 10px;
+    grid-gap: 5px;
+}
+.search-value a {
+    text-decoration: none;
+    color: #D43A3A;
+}
+.search-results {
+    background-color: #1d1d1d;
+    width: 100vh;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+}
+.search-price {
+    display: flex;
+    margin-top: 15px;
+    grid-gap: 5px;
+}
+.search-price select {
+    background-color: #2A2A2A;
+    color: #fff;
+    border-radius: 5px;
+}
+.result-error {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    
+}
+.result-loading {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;    
+}
+.result-loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 6px;
+    background:
+      conic-gradient(from 135deg at top,#D43A3A 90deg, #0000 0) 0 calc(50% - 4px)/17px 8.5px,
+      radial-gradient(farthest-side at bottom left,#0000 calc(100% - 6px),#D43A3A calc(100% - 5px) 99%,#0000) top right/50%  50% content-box content-box,
+      radial-gradient(farthest-side at top        ,#0000 calc(100% - 6px),#D43A3A calc(100% - 5px) 99%,#0000) bottom   /100% 50% content-box content-box;
+    background-repeat: no-repeat;
+    animation:s1 2s infinite linear;
+}
+@keyframes s1{ 
+    100%{transform: rotate(1turn)}
+}
+.results-steam {
+    width: 30%;
+}
+.results-epic {
+    width: 70%;
+    border-left: 1px solid #D43A3A;
+    padding-left: 10px;
+}
+.results-list {
+    grid-gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.results-card {
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: #2A2A2A;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.results-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 10px 1px #D43A3A;
+}
+    
+.card-img { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-img img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.card-title { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.card-title h3 {
+    margin: 2px;
+}
+.card-price { 
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.card-price p {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 5px;
+    margin: 0;
+}
