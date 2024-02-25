@@ -128,7 +128,6 @@ function SearchPage() {
 
   function setPriceValue(){
     if(coin === 'us' || coin === 'br' || coin === 'es'){return}
-    console.log(ParamsCoin)
     if(ParamsCoin === 'BRL'){
       setCoin('br')
     }else if(ParamsCoin === 'EUR'){
