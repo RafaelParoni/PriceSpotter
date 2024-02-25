@@ -1,29 +1,6 @@
 
 
 var Languages = { // Traduções de paginas para EN, PT e ES
-    "en": {
-        "NotFound": {
-            "Title": "Page not found",
-            "Button": 'Back to start',
-        },
-        "Home": {
-            "TitleFreeGame": 'Epic games free games',
-            "TitleNews": 'Latest news',
-            "NewsType": 'Theme',
-            'NotFoundLinks': 'there is no link.',
-            "NotFoundNews": 'No news found.',
-            "ViewNews": "See all news",
-            "ReportBug": "Report a bug/error",
-
-            "EpicCardFree": "FREE NOW",
-            "EpicCardComing": "FREE COMING SOON",
-        },
-        "News": {
-            "TitleNews": 'Latest news',
-            "NewsType": 'Theme',
-            'NotFoundLinks': 'there is no link.',
-        }
-    },
     "pt": {
         "NotFound": {
             "Title": "Pagina não encontrada",
@@ -45,6 +22,65 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "TitleNews": 'Últimas notícias',
             "NewsType": 'Tema',
             'NotFoundLinks': 'não há nenhum link.',
+        },
+        "Search": {
+            "GameNotSale":"Não esta a venda",
+
+            "SearchInfo":" Pesquisa dos jogos baseada nas lojas ",
+
+            "PriceCoin":"Moeda",
+
+            //Steam
+            "SteamNotFunciton":"Pequisa pelo Steam ainda não esta disponivel :c",
+            
+            // Epic
+            "ErrorMsgPart1":"Algo deu errado",
+            "ErrorMsgPart2":"Desculpe",
+
+            "notFoundGame":"Nenhum game encontrado :c",
+
+            "Loading":"Carregando",
+        }
+    },
+    "en": {
+        "NotFound": {
+            "Title": "Page not found",
+            "Button": 'Back to start',
+        },
+        "Home": {
+            "TitleFreeGame": 'Epic games free games',
+            "TitleNews": 'Latest news',
+            "NewsType": 'Theme',
+            'NotFoundLinks': 'there is no link.',
+            "NotFoundNews": 'No news found.',
+            "ViewNews": "See all news",
+            "ReportBug": "Report a bug/error",
+
+            "EpicCardFree": "FREE NOW",
+            "EpicCardComing": "FREE COMING SOON",
+        },
+        "News": {
+            "TitleNews": 'Latest news',
+            "NewsType": 'Theme',
+            'NotFoundLinks': 'there is no link.',
+        },
+        "Search": {
+            "GameNotSale":"It is not for sale",
+
+            "SearchInfo":" Game search based on stores: ",
+
+            "PriceCoin":"Coin",
+
+            //Steam
+            "SteamNotFunciton":"Steam search is not yet available :c",
+            
+            // Epic
+            "ErrorMsgPart1":"Something went wrong,",
+            "ErrorMsgPart2":"sorry",
+
+            "notFoundGame":"No games found :c",
+
+            "Loading":"Loading",
         }
     },
     'es': {
@@ -68,6 +104,24 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             "TitleNews": 'Últimas noticias',
             "NewsType": 'Tema',
             'NotFoundLinks': 'no hay ningún vínculo.',
+        },
+        "Search": {
+            "GameNotSale":"No está a la venta",
+
+            "SearchInfo":" Búsqueda de juegos basada en tiendas: ",
+
+            "PriceCoin":"Moneda",
+
+            //Steam
+            "SteamNotFunciton":"La búsqueda de Steam aún no está disponible :c",
+            
+            // Epic
+            "ErrorMsgPart1":"Algo salió mal,",
+            "ErrorMsgPart2":" lo siento",
+
+            "notFoundGame":"No se encontraron juegos :c",
+
+            "Loading":"Cargando",
         }
     },
 }
