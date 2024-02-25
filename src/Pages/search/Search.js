@@ -53,6 +53,8 @@ function SearchPage() {
     var coinEpic = 'us'
     if(ParamsCoin === 'BRL'){
       coinEpic = 'br'
+    }else if( ParamsCoin === 'EUR'){
+      coinEpic = 'es'
     }else{
       coinEpic = 'us'
     }
@@ -125,9 +127,12 @@ function SearchPage() {
   }
 
   function setPriceValue(){
-    if(coin === 'us' || coin === 'br'){return}
+    if(coin === 'us' || coin === 'br' || coin === 'es'){return}
+    console.log(ParamsCoin)
     if(ParamsCoin === 'BRL'){
       setCoin('br')
+    }else if(ParamsCoin === 'EUR'){
+      setCoin('es')
     }else{
       setCoin('us')
     }
@@ -137,6 +142,8 @@ function SearchPage() {
 function updataPriceValue(newCoin){
   if(newCoin === 'br'){
     window.location.search = 'coin=BRL'
+  }else if(newCoin === 'es'){
+    window.location.search = 'coin=EUR'
   }else{
     window.location.search = 'coin=USD'
   }
@@ -149,8 +156,9 @@ function updataPriceValue(newCoin){
           <div className='search-price'>
             <p>{lang.PriceCoin }:</p>
             <select defaultValue={coin} id='price-value' onChange={(e)=> updataPriceValue(e.target.value)}>
-              <option value={'br'}>Real (BRL) </option>
-              <option value={'us'}>Dolar (USD) </option>
+              <option value={'br'}>Real (BRL - R$) </option>
+              <option value={'us'}>Dolar (USD - US$) </option>
+              <option value={'es'}>Euro (EUR - €) </option>
             </select>
           </div>
       </div>
