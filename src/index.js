@@ -66,6 +66,10 @@
     langValicacao(lang, pathname)
   }
 
+  if(window.localStorage.getItem('coin') === null){
+    window.localStorage.setItem('coin', 'USD')
+  }
+
 
   function langValicacao(langV, pathname){
 

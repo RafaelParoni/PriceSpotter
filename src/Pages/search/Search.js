@@ -37,8 +37,6 @@ function SearchPage() {
   var [steamResults, setSteamResults] = useState([])
   var [steamResultsStats, setSteamResultsStats] = useState('coming-soon')
 
-  var [coin, setCoin] = useState('')
-
   var urlParams = new URLSearchParams(window.location.search);
   var ParamsCoin = urlParams.get("coin")
 
@@ -126,26 +124,15 @@ function SearchPage() {
     )
   }
 
-  function setPriceValue(){
-    if(coin === 'us' || coin === 'br' || coin === 'es'){return}
-    if(ParamsCoin === 'BRL'){
-      setCoin('br')
-    }else if(ParamsCoin === 'EUR'){
-      setCoin('es')
-    }else{
-      setCoin('us')
-    }
-  }
-  setPriceValue()
-
 function updataPriceValue(newCoin){
-  if(newCoin === 'br'){
-    window.location.search = 'coin=BRL'
-  }else if(newCoin === 'es'){
-    window.location.search = 'coin=EUR'
+  if(newCoin === 'BRL'){
+    window.localStorage.setItem('coin', 'BRL')
+  }else if(newCoin === 'EUR'){
+    window.localStorage.setItem('coin', 'EUR')
   }else{
-    window.location.search = 'coin=USD'
+    window.localStorage.setItem('coin', 'USD')
   }
+  window.location.reload()
 }
   return (
     <div className="SearchPage">
@@ -154,10 +141,10 @@ function updataPriceValue(newCoin){
           <p><LuInfo/> {lang.SearchInfo} <a href='https://store.epicgames.com/pt-BR/'>EPIC GAMES</a> & <del><a href='https://store.steampowered.com/'>STEAM</a> </del></p>
           <div className='search-price'>
             <p>{lang.PriceCoin }:</p>
-            <select defaultValue={coin} id='price-value' onChange={(e)=> updataPriceValue(e.target.value)}>
-              <option value={'br'}>Real (BRL - R$) </option>
-              <option value={'us'}>Dolar (USD - US$) </option>
-              <option value={'es'}>Euro (EUR - €) </option>
+            <select defaultValue={window.localStorage.getItem('coin')} id='price-value' onChange={(e)=> updataPriceValue(e.target.value)}>
+              <option value={'BRL'}>Real (BRL - R$) </option>
+              <option value={'USD'}>Dolar (USD - US$) </option>
+              <option value={'EUR'}>Euro (EUR - €) </option>
             </select>
           </div>
       </div>

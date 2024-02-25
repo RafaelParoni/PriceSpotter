@@ -33,12 +33,11 @@ function GamePage() {
   var [epicResultsStats, setEpicResultsStats] = useState('loading')
 
   if(detailsType === 'epic'){
-
-    window.localStorage.setItem("coin", 'br')
-    var coinEpic = window.localStorage.getItem("coin")
+    var CoinSelect = window.localStorage.getItem("coin")
+    console.log(CoinSelect)
     function getEpicGames(){
       if(Object.keys(epicResults).length > 0){return}else{
-        EpicGamesStoreApi(detailsValue, coinEpic).then(function(result){
+        EpicGamesStoreApi(detailsValue, CoinSelect).then(function(result){
           if(result.code){
             setEpicResultsStats('error')
           }else{
