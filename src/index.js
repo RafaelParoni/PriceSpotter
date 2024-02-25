@@ -103,7 +103,6 @@
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
   if(window.localStorage.getItem("demo") === 'DEMO-ACTIVATED'){
-    console.log("Ativando demo")
     let lang = `/${pathname}/`
     let path = window.location.pathname.replace(lang, '')
 
@@ -115,7 +114,7 @@
     }
 
     switch(path){
-      case 'game':
+      case 'game/details':
           root.render(
             <React.StrictMode>
               <NavbarComp/>
