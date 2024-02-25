@@ -8,6 +8,8 @@ import { useState } from 'react';
 
 function NavbarComp() {
 
+  var urlParams = new URLSearchParams(window.location.search);
+  var ParamsCoin = urlParams.get("coin")
 
   var [SearchValue, setSearchValue] = useState('')
 
@@ -34,8 +36,11 @@ function NavbarComp() {
         }
   
       }
-      console.log(`pesquisando: ${SearchValue}`)
-      window.location = `/${window.localStorage.getItem("lang")}/search/${SearchValue}`
+      if(ParamsCoin !== ' '){
+        window.location = `/${window.localStorage.getItem("lang")}/search/${SearchValue}?coin=${ParamsCoin}`
+      }else{
+        window.location = `/${window.localStorage.getItem("lang")}/search/${SearchValue}`
+      }
     }
   }
 
