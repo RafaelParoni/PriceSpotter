@@ -24,14 +24,14 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             'NotFoundLinks': 'não há nenhum link.',
         },
         "Search": {
-            "GameNotSale":"Não esta a venda",
+            "GameNotSale":"Não esta a venda ou é gratís",
 
             "SearchInfo":" Pesquisa dos jogos baseada nas lojas ",
 
             "PriceCoin":"Moeda",
 
             //Steam
-            "SteamNotFunciton":"Pequisa pelo Steam ainda não esta disponivel :c",
+            "SteamNotFunction":"Pequisa pelo Steam ainda não esta disponivel :c",
             
             // Epic
             "ErrorMsgPart1":"Algo deu errado",
@@ -65,14 +65,14 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             'NotFoundLinks': 'there is no link.',
         },
         "Search": {
-            "GameNotSale":"It is not for sale",
+            "GameNotSale":"It is not for sale or is it free",
 
             "SearchInfo":" Game search based on stores: ",
 
             "PriceCoin":"Coin",
 
             //Steam
-            "SteamNotFunciton":"Steam search is not yet available :c",
+            "SteamNotFunction":"Steam search is not yet available :c",
             
             // Epic
             "ErrorMsgPart1":"Something went wrong,",
@@ -106,14 +106,14 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             'NotFoundLinks': 'no hay ningún vínculo.',
         },
         "Search": {
-            "GameNotSale":"No está a la venta",
+            "GameNotSale":"No está a la venta o es gratis",
 
             "SearchInfo":" Búsqueda de juegos basada en tiendas: ",
 
             "PriceCoin":"Moneda",
 
             //Steam
-            "SteamNotFunciton":"La búsqueda de Steam aún no está disponible :c",
+            "SteamNotFunction":"La búsqueda de Steam aún no está disponible :c",
             
             // Epic
             "ErrorMsgPart1":"Algo salió mal,",
