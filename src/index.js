@@ -114,7 +114,15 @@
     }
 
     switch(path){
-      case 'game/details':
+      case 'game/details/epic':
+          root.render(
+            <React.StrictMode>
+              <NavbarComp/>
+              <GamePage />
+            </React.StrictMode>
+          );
+        break;
+        case 'game/details/steam':
           root.render(
             <React.StrictMode>
               <NavbarComp/>
