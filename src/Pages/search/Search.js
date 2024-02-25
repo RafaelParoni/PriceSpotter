@@ -5,9 +5,27 @@ import { LuSearch, LuInfo, LuAlertTriangle, LuSearchSlash, LuBanana, LuApple, Lu
 
 // import { SteamSearchGames } from '../../Components/Steam/steamStoreApi';
 import { EpicGamesStoreApi } from '../../Components/Epic Games/epicStoreApi';
+
+import { Languages } from '../../exports';
+
 import { useState } from 'react';
 
 function SearchPage() {
+
+  var langL = window.localStorage.getItem('lang')
+  var lang = {}
+
+  switch(langL){
+    case "pt":
+      lang = Languages.pt.Search
+      break;
+    case "es":
+      lang = Languages.es.Search
+      break;
+    default: 
+      lang = Languages.en.Search
+      break;
+  }
 
   var searchValue = window.location.pathname
   var searchValue2 = window.location.pathname.indexOf('/search/')
@@ -70,7 +88,7 @@ function SearchPage() {
     if(item.currentPrice === 0){
       DiscountDiv = (
           <p>
-            Não esta a venda
+           {lang.GameNotSale }
           </p>
       )
     }
@@ -123,14 +141,13 @@ function updataPriceValue(newCoin){
     window.location.search = 'coin=USD'
   }
 }
-
   return (
     <div className="SearchPage">
       <div className='search-value'>
           <h3><LuSearch/> {searchValue}</h3>
-          <p><LuInfo/> Pesquisa dos jogos baseada na loja da <a href='https://store.epicgames.com/pt-BR/'>EPIC GAMES</a> e <del><a href='https://store.steampowered.com/'>STEAM</a> </del></p>
+          <p><LuInfo/> {lang.SearchInfo} <a href='https://store.epicgames.com/pt-BR/'>EPIC GAMES</a> & <del><a href='https://store.steampowered.com/'>STEAM</a> </del></p>
           <div className='search-price'>
-            <p>Moeda:</p>
+            <p>{lang.PriceCoin }:</p>
             <select defaultValue={coin} id='price-value' onChange={(e)=> updataPriceValue(e.target.value)}>
               <option value={'br'}>Real (BRL) </option>
               <option value={'us'}>Dolar (USD) </option>
@@ -143,7 +160,7 @@ function updataPriceValue(newCoin){
           <div className='results-list'>
             {steamResultsStats === 'coming-soon' && (
               <div className='result-error'>
-                <h4><LuAnnoyed/> Pequisa pelo Steam ainda não esta disponivel :c</h4>
+                <h4><LuAnnoyed/> {lang.SteamNotFunction }</h4>
               </div> 
             )}
           </div>
@@ -153,7 +170,7 @@ function updataPriceValue(newCoin){
           <div className='results-list'>
             {epicResultsStats === 'error' && (
               <div className='result-error'>
-                <h4>Algo deu errado <LuAlertTriangle/> <br/> Desculpe </h4>
+                <h4>{lang.ErrorMsgPart1 }<LuAlertTriangle/> <br/> {lang.ErrorMsgPart2 } </h4>
               </div> 
             )}
             {epicResultsStats === 'sucess' && (
@@ -163,13 +180,13 @@ function updataPriceValue(newCoin){
             )}
             {epicResultsStats === 'notFound' && (
               <div className='result-loading'>
-                 <h2><LuSearchSlash /> Nenhum game encontrado :c</h2>
+                 <h2><LuSearchSlash /> {lang.notFoundGame }</h2>
                   
               </div> 
             )}
             {epicResultsStats === 'loading' && (
               <div className='result-loading'>
-                 <h2>Carregando</h2>
+                 <h2>{lang.Loading }</h2>
                   <div className="result-loader"></div>
               </div> 
             )}
