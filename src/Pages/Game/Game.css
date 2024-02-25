@@ -19,4 +19,116 @@
     padding: 25px 5px 25px 5px;
     width: 80%;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game-details-img {
+    height: 500px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.game-details-img:hover {
+    filter: grayscale(100%);
+}
+.game-details-img img {
+    height: 500px;
+    width: auto;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.game-details-img img:hover {
+    filter: grayscale(100%);
+}
+.game-details-img-text:hover ~.game-details-img img{
+    filter: grayscale(100%);
+}
+.game-details-img img:hover ~ .game-details-img-text,
+.game-details-img-text:hover{
+    filter: opacity(1);
+}
+
+.game-details-img-text {
+    position: relative;
+    bottom: 25px;
+    right: 0px;
+    filter: opacity(0);
+    transition: 0.5s;
+}
+.game-details-info {
+    padding-left: 10px;
+    height: 500px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.games-img-views {
+    display: none;
+    filter: opacity(0);
+    background-color: #ffffff98;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.view-imgs-display {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+
+}
+.view-imgs-display img {
+    height: 65%;
+    max-width: 80%;
+}
+.view-imgs-display button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #D43A3A;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.view-imgs-display button:hover {
+    transform: scale(1.05);
+}
+
+
+.view-imgs-control {
+    background-color: #1d1d1d;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+.view-imgs-control button {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #D43A3A;
+    color: #fff;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+.view-imgs-control button:hover {
+    transform: scale(1.05);
+}
+.view-imgs-control p {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
