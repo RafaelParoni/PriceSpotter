@@ -34,12 +34,6 @@ function GamePage() {
   var [slideImgs, setSlideImgs] = useState([])
 
 
-  function EpicGamesDisplay({item}){
-    return (
-      <h1>nome</h1>
-    )
-  }
-
   var CoinSelect = window.localStorage.getItem("coin")
   function getEpicGames(){
       if(Object.keys(epicResults).length > 0){return}else{
@@ -52,7 +46,9 @@ function GamePage() {
               setEpicResultsStats('notFound')
             }else{
               setEpicResultsStats('sucess')
-              setSlideImgs(result[0].keyImages) 
+              setSlideImgs(result[0].keyImages)
+              selectBanner(result[0].keyImages)
+              console.log(result[0])
 
             }
           }
@@ -60,6 +56,18 @@ function GamePage() {
       }
   }
 
+  var [thumbnail, setThumbnail] = useState('')
+  function selectBanner(imgs){
+    var i = 0
+    while(i < imgs.length){
+      if(imgs[i].type === 'Thumbnail'){
+        setThumbnail(imgs[i].url)
+        i = imgs.length
+      }
+      i++
+    }
+    
+  }
 
   var Slide = 0
 
@@ -99,9 +107,11 @@ function GamePage() {
   }
 
 
+  // VER SE O JOGO É GRATIS OU NÃO se effectiveDate for maior doq 2040 ele não é gratis é coming soon, agora se ele é menor ou igual a 2024 ele é gratis
+
   function SlideViewImgsDisplay({item}){
     return (
-      <img id={item.type} style={{display: 'none'}} src={item.url} />
+      <img alt='Slide img' id={item.type} style={{display: 'none'}} src={item.url} />
     )
   }
 
@@ -121,12 +131,16 @@ function GamePage() {
           {epicResultsStats === 'sucess' && (
             <>
               <div onClick={()=> {document.getElementById('view-img').style.display = 'flex'; document.getElementById('view-img').style.filter = ' opacity(1)'; SlideViewImgs('start')}} className='game-details-img'>
-                <img src={epicResults.keyImages[0].url} className='game-details-img' />
+                <img alt='img card' id='imageCard' src={thumbnail} className='game-details-img' />
                 <div className='game-details-img-text'>Mais outras {epicResults.keyImages.length -1 } imagens</div>
               </div>
               
               <div className='game-details-info'>
                 <p>{epicResults.description}</p>
+                <div className='info-price'>
+                  PREÇO effectiveDate
+                  
+                </div>
               </div>
             </>
           )}
