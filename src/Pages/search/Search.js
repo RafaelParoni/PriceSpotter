@@ -37,10 +37,6 @@ function SearchPage() {
   var [steamResults, setSteamResults] = useState([])
   var [steamResultsStats, setSteamResultsStats] = useState('coming-soon')
 
-  var urlParams = new URLSearchParams(window.location.search);
-  var ParamsCoin = urlParams.get("coin")
-
-
 
 
   var [epicResults, setEpicResults] = useState([])
@@ -48,14 +44,7 @@ function SearchPage() {
 
   function getEpicGames(){
 
-    var coinEpic = 'us'
-    if(ParamsCoin === 'BRL'){
-      coinEpic = 'br'
-    }else if( ParamsCoin === 'EUR'){
-      coinEpic = 'es'
-    }else{
-      coinEpic = 'us'
-    }
+    var coinEpic = window.localStorage.getItem("coin")
 
     if(Object.keys(epicResults).length > 0){return}else{
       EpicGamesStoreApi(searchValue, coinEpic).then(function(result){
