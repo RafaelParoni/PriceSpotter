@@ -1,8 +1,8 @@
 import './Game.css';
 
-import { LuCherry, LuX, LuChevronLeft, LuChevronRight     } from "react-icons/lu";
+import { LuCherry, LuX, LuChevronLeft, LuStore, LuChevronRight, LuApple, LuBanana      } from "react-icons/lu";
 
-import { useState, } from 'react';
+import { useState } from 'react';
 
 import { EpicGamesStoreApi } from '../../Components/Epic Games/epicStoreApi';
 
@@ -48,8 +48,8 @@ function GamePage() {
               setEpicResultsStats('sucess')
               setSlideImgs(result[0].keyImages)
               selectBanner(result[0].keyImages)
+              selectPrice(result[0])
               console.log(result[0])
-
             }
           }
         })
@@ -70,7 +70,6 @@ function GamePage() {
   }
 
   var Slide = 0
-
   function SlideViewImgs(type){
     if(type === 'start'){
       document.getElementById(slideImgs[Slide].type).style.display = 'none'
@@ -106,14 +105,57 @@ function GamePage() {
     document.getElementById('SlideValue').innerHTML = Slide + 1   
   }
 
-
-  // VER SE O JOGO É GRATIS OU NÃO se effectiveDate for maior doq 2040 ele não é gratis é coming soon, agora se ele é menor ou igual a 2024 ele é gratis
-
   function SlideViewImgsDisplay({item}){
     return (
       <img alt='Slide img' id={item.type} style={{display: 'none'}} src={item.url} />
     )
   }
+
+
+  function selectPrice(jogo){
+    var valor = jogo.price.totalPrice.originalPrice
+    var Discout = jogo.price.totalPrice.fmtPrice.discountPrice
+    var DiscoutNum = jogo.price.totalPrice.discount
+    var ValorNum = jogo.currentPrice
+
+    if(valor === 0){
+      // Verificar se é free ou Coming soon
+      var jogoData = jogo.effectiveDate
+      jogoData = jogoData.slice(0,4)
+      jogoData = Number(jogoData)
+      
+      var AtualData = new Date().getFullYear()
+
+      if(jogoData > AtualData){
+        setTimeout(function(){
+          document.getElementById('price-value').innerHTML = ` EM BREVE`
+        },1000)
+      }else{
+        setTimeout(function(){
+          document.getElementById('price-value').innerHTML = ` GRATÍS`
+        },1000)
+      }
+    }else{
+      if(DiscoutNum > 0){
+        if(DiscoutNum === ValorNum){
+          setTimeout(function(){
+            document.getElementById('price-value').innerHTML = `GRATÍS `
+          },1000)
+        }else{
+          setTimeout(function(){
+            document.getElementById('discontTtile').style.display = 'flex'
+            document.getElementById('price-value').innerHTML = ` <sup> <del> ${jogo.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b class='price-discout'> ${Discout} </b> `
+          },1000)
+        }
+      }else{
+        setTimeout(function(){
+          document.getElementById('price-value').innerHTML = ` ${jogo.price.totalPrice.fmtPrice.originalPrice} `
+        },1000)
+      }
+    }
+  }
+
+
 
   if(detailsType === 'epic'){
     getEpicGames()
@@ -125,7 +167,7 @@ function GamePage() {
     <>
       <div className="gamePage">
         <div className='game-info'>
-            <h2> <LuCherry/> {detailsValue}</h2>
+            <h2> <LuCherry/> {detailsValue}  <sup style={{display: 'none'}} id='discontTtile'> <p>  <LuBanana /> Tem desconto! </p></sup></h2>
         </div>
         <div className='game-details'>
           {epicResultsStats === 'sucess' && (
@@ -136,10 +178,10 @@ function GamePage() {
               </div>
               
               <div className='game-details-info'>
+                <h2><sub> <LuStore /> Publisher: </sub> {epicResults.publisherName}</h2>
                 <p>{epicResults.description}</p>
-                <div className='info-price'>
-                  PREÇO effectiveDate
-                  
+                <div id='info-price' className='info-price'>
+                  <LuApple />  Preço:  <h3 id='price-value'></h3>
                 </div>
               </div>
             </>
