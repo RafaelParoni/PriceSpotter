@@ -166,3 +166,36 @@
     align-items: center;
     justify-content: center;
 }
+
+
+@media only screen and (max-width: 690px) {
+    .game-details {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+    }
+    .game-details-info {
+        grid-gap: 5px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .games-img-views {
+        position: fixed;
+        height: 100%;
+    }
+    .view-imgs-display {
+        width: 500px;
+        height: 90%;
+        flex-direction: column;
+    }
+    .view-imgs-display img {
+        transform: rotate(90deg);
+    }
+    .view-imgs-display button {
+        transform: rotate(90deg);
+    }
+    .view-imgs-control {
+        transform: rotate(90deg);
+    }
+  }
