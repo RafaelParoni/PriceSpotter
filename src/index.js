@@ -106,7 +106,7 @@
 
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
-  let lang = `/${pathname}/`
+  lang = `/${pathname}/`
   let path = window.location.pathname.replace(lang, '')
 
     if(path.includes('/') === true){
