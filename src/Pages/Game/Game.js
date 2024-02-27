@@ -129,28 +129,28 @@ function GamePage() {
       if(jogoData > AtualData){
         setTimeout(function(){
           document.getElementById('price-value').innerHTML = ` EM BREVE`
-        },1000)
+        },100)
       }else{
         setTimeout(function(){
           document.getElementById('price-value').innerHTML = ` GRATÍS`
-        },1000)
+        },100)
       }
     }else{
       if(DiscoutNum > 0){
         if(DiscoutNum === ValorNum){
           setTimeout(function(){
             document.getElementById('price-value').innerHTML = `GRATÍS `
-          },1000)
+          },100)
         }else{
           setTimeout(function(){
             document.getElementById('discontTtile').style.display = 'flex'
-            document.getElementById('price-value').innerHTML = ` <sup> <del> ${jogo.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b class='price-discout'> ${Discout} </b> `
-          },1000)
+            document.getElementById('price-value').innerHTML = `Preço:  <sup> <del> ${jogo.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b class='price-discout'> ${Discout} </b> `
+          },100)
         }
       }else{
         setTimeout(function(){
-          document.getElementById('price-value').innerHTML = ` ${jogo.price.totalPrice.fmtPrice.originalPrice} `
-        },1000)
+          document.getElementById('price-value').innerHTML = `Preço:  ${jogo.price.totalPrice.fmtPrice.originalPrice} `
+        },300)
       }
     }
   }
@@ -181,7 +181,7 @@ function GamePage() {
                 <h2><sub> <LuStore /> Publisher: </sub> {epicResults.publisherName}</h2>
                 <p>{epicResults.description}</p>
                 <div id='info-price' className='info-price'>
-                  <LuApple />  Preço:  <h3 id='price-value'></h3>
+                  <LuApple /> <h3 id='price-value'> Carregando</h3>
                 </div>
               </div>
             </>
