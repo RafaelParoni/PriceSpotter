@@ -106,9 +106,8 @@
 
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
-  if(window.localStorage.getItem("demo") === 'DEMO-ACTIVATED'){
-    let lang = `/${pathname}/`
-    let path = window.location.pathname.replace(lang, '')
+  let lang = `/${pathname}/`
+  let path = window.location.pathname.replace(lang, '')
 
     if(path.includes('/') === true){
       path = path.slice(0, path.lastIndexOf('/'))
@@ -166,6 +165,13 @@
               </>
           );
         break;
+        case 'ComingSoon':
+          root.render(
+              <>
+                <SoonPage/>
+              </>
+          );
+        break;
       default:
           root.render(
             <React.StrictMode>
@@ -176,14 +182,6 @@
         break;
     }
 
-  }else{
-    console.log('Demo não ativada')
-    root.render(
-      <React.StrictMode>
-        <SoonPage />
-      </React.StrictMode>
-    );
-  }
 
 
   export {lang};
