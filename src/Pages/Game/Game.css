@@ -75,6 +75,9 @@
     display: flex;
     flex-direction: column;
 }
+.game-details-info h4, h5, h3 {
+    margin: 0;
+}
 .info-price {
     width: 100%;
     height: 50px;

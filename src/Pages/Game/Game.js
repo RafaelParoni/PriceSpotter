@@ -1,6 +1,6 @@
 import './Game.css';
 
-import { LuCherry, LuX, LuChevronLeft, LuStore, LuChevronRight, LuApple, LuBanana      } from "react-icons/lu";
+import { LuCherry, LuX, LuChevronLeft, LuStore, LuChevronRight, LuApple, LuBanana, LuCandyCane, LuCandy      } from "react-icons/lu";
 
 import { useState } from 'react';
 
@@ -128,28 +128,28 @@ function GamePage() {
 
       if(jogoData > AtualData){
         setTimeout(function(){
-          document.getElementById('price-value').innerHTML = ` EM BREVE`
+          document.getElementById('price-value-epic').innerHTML = ` EM BREVE`
         },100)
       }else{
         setTimeout(function(){
-          document.getElementById('price-value').innerHTML = ` GRATÍS`
+          document.getElementById('price-value-epic').innerHTML = ` GRATÍS`
         },100)
       }
     }else{
       if(DiscoutNum > 0){
         if(DiscoutNum === ValorNum){
           setTimeout(function(){
-            document.getElementById('price-value').innerHTML = `GRATÍS `
+            document.getElementById('price-value-epic').innerHTML = `GRATÍS `
           },100)
         }else{
           setTimeout(function(){
             document.getElementById('discontTtile').style.display = 'flex'
-            document.getElementById('price-value').innerHTML = `Preço:  <sup> <del> ${jogo.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b class='price-discout'> ${Discout} </b> `
+            document.getElementById('price-value-epic').innerHTML = `<sup> <del> ${jogo.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b class='price-discout'> ${Discout} </b> `
           },100)
         }
       }else{
         setTimeout(function(){
-          document.getElementById('price-value').innerHTML = `Preço:  ${jogo.price.totalPrice.fmtPrice.originalPrice} `
+          document.getElementById('price-value-epic').innerHTML = `${jogo.price.totalPrice.fmtPrice.originalPrice} `
         },300)
       }
     }
@@ -180,8 +180,10 @@ function GamePage() {
               <div className='game-details-info'>
                 <h2><sub> <LuStore /> Publisher: </sub> {epicResults.publisherName}</h2>
                 <p>{epicResults.description}</p>
-                <div id='info-price' className='info-price'>
-                  <LuApple /> <h3 id='price-value'> Carregando</h3>
+                <h3>Preços:</h3>
+                <h4> <LuCandy /> Epic Games:</h4>
+                <div id='info-price-epic' className='info-price'>
+                   <h3 id='price-value-epic'> Carregando</h3>
                 </div>
               </div>
             </>
