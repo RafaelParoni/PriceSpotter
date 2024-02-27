@@ -84,7 +84,6 @@ function NavbarComp() {
       <div id='extraContent' className='extra-content'>
         <h3 onClick={()=> window.location = `/${window.localStorage.getItem('lang')}/`}> <img src={logo356} width={25} alt="logos" /> Price Spotter Menu</h3>
         <button className='extra-options' onClick={()=> window.location = `/${window.localStorage.getItem('lang')}/`}>Inicio</button>
-        <button className='extra-options' onClick={()=> window.location = `/${window.localStorage.getItem('lang')}/history/`}>Historico</button>
         <button className='extra-options' onClick={()=> window.location = `/${window.localStorage.getItem('lang')}/news/`}>Noticias</button>
         <button className='extra-options' onClick={()=> window.location = `/${window.localStorage.getItem('lang')}/bug/`}>Relatar bug</button>
         <button className='extra-options' onClick={()=> window.location = `/${window.localStorage.getItem('lang')}/settings/`}>Configuração do site</button>
