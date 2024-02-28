@@ -104,12 +104,12 @@ function SearchPage() {
       if(jogoData > AtualData){
         id = 'soon'
         DiscountDiv = (
-          <p> <LuCarrot /> Em Breve</p>
+          <p> <LuCarrot /> {lang.CardsSoon}</p>
         )
       }else{
         id = 'free'
         DiscountDiv = (
-          <p> <LuBanana/> Gratís</p>
+          <p> <LuBanana/> {lang.CardsFree}</p>
         )
       }
     }else{
@@ -117,7 +117,7 @@ function SearchPage() {
         if(DiscoutNum === ValorNum){
           id = 'free'
           DiscountDiv = (
-            <p> <LuBanana/> Gratís</p>
+            <p> <LuBanana/> {lang.CardsFree}</p>
           )
         }else{
           id = 'discount'
@@ -323,10 +323,10 @@ function SearchPage() {
               <option value={'EUR'}>Euro (EUR - €) </option>
             </select>
           </div>
-          <h4>Filtros: {typeP !== null && (<div> type: {typeP} <LuXCircle onClick={(e) => updataFilter('type', 'remove')} color='#D43A3A'/></div>)} {storeP !== null && (<div> Store: {storeP} <LuXCircle onClick={(e) => updataFilter('store', 'remove')} color='#D43A3A'/></div>)}</h4>
+          <h4>{lang.Filter}: {typeP !== null && (<div> {lang.Price}: {typeP} <LuXCircle onClick={(e) => updataFilter('type', 'remove')} color='#D43A3A'/></div>)} {storeP !== null && (<div> {lang.Store}: {storeP} <LuXCircle onClick={(e) => updataFilter('store', 'remove')} color='#D43A3A'/></div>)}</h4>
           <div className='search-filter' >
             <div nonce='store-filter' onClick={()=> visibleFilter('store')} className='filter-store' id='filter-store'>
-              <div nonce='store-filter' className='filter-store-text'> <p nonce='store-filter'>Loja</p> <LuChevronLeft nonce='store-filter' id='filter-store-icon'/></div>
+              <div nonce='store-filter' className='filter-store-text'> <p nonce='store-filter'>{lang.FilterStore}</p> <LuChevronLeft nonce='store-filter' id='filter-store-icon'/></div>
 
               <div nonce='store-filter' className='filter-store-options' id='filter-store-options'>
                 <div className='filter-store-options-triangulo'></div>
@@ -335,15 +335,15 @@ function SearchPage() {
               </div>
             </div>
             <div nonce='price-filter' onClick={()=> visibleFilter('price')} className='filter-store' id='filter-price'>
-              <div nonce='price-filter' className='filter-store-text'> <p nonce='price-filter'>Preços</p> <LuChevronLeft nonce='price-filter' id='filter-price-icon'/></div>
+              <div nonce='price-filter' className='filter-store-text'> <p nonce='price-filter'>{lang.FilterPrice}</p> <LuChevronLeft nonce='price-filter' id='filter-price-icon'/></div>
 
               <div nonce='price-filter' className='filter-store-options' id='filter-price-options'>
                 <div className='filter-store-options-triangulo'></div>
-                <button onClick={()=> updataFilter('type', 'free')} nonce='price-filter'>Gratís</button>
-                <button onClick={()=> updataFilter('type', 'soon')} nonce='price-filter'>Em breve </button>
-                <button onClick={()=> updataFilter('type', 'discount')} nonce='price-filter'>Promoção </button>
-                <button onClick={()=> updataFilter('type', 'pays')} nonce='price-filter'> +0,99 {window.localStorage.getItem("coin")} </button>
-                <button onClick={()=> updataFilter('type', 'all')} nonce='price-filter'> Todos </button>
+                <button onClick={()=> updataFilter('type', 'free')} nonce='price-filter'>{lang.PriceFree}</button>
+                <button onClick={()=> updataFilter('type', 'soon')} nonce='price-filter'>{lang.PriceSoon}</button>
+                <button onClick={()=> updataFilter('type', 'discount')} nonce='price-filter'>{lang.PriceDiscount} </button>
+                <button onClick={()=> updataFilter('type', 'pays')} nonce='price-filter'> {lang.PricePays} </button>
+                <button onClick={()=> updataFilter('type', 'all')} nonce='price-filter'> {lang.PriceAll} </button>
               </div>
             </div>
           </div>
