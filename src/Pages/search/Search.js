@@ -1,7 +1,7 @@
 import './Search.css';
 
 
-import { LuSearch, LuInfo, LuAlertTriangle, LuSearchSlash, LuBanana, LuApple, LuAnnoyed   } from "react-icons/lu";
+import { LuSearch, LuInfo, LuXCircle, LuChevronLeft, LuAlertTriangle, LuSearchSlash, LuBanana, LuApple, LuAnnoyed   } from "react-icons/lu";
 
 // import { SteamSearchGames } from '../../Components/Steam/steamStoreApi';
 import { EpicGamesStoreApi } from '../../Components/Epic Games/epicStoreApi';
@@ -113,7 +113,7 @@ function SearchPage() {
     )
   }
 
-function updataPriceValue(newCoin){
+  function updataPriceValue(newCoin){
   if(newCoin === 'BRL'){
     window.localStorage.setItem('coin', 'BRL')
   }else if(newCoin === 'EUR'){
@@ -122,7 +122,75 @@ function updataPriceValue(newCoin){
     window.localStorage.setItem('coin', 'USD')
   }
   window.location.reload()
-}
+  }
+
+
+  var [storeResult, setStoreResult] = useState('epic')
+
+  const urlParams = new URLSearchParams(window.location.search);
+  var storeP = urlParams.get("store")
+  if(storeP === null){
+    storeP = 'epic'
+  }
+  const typeP = urlParams.get("type")
+
+  function updataFilter(type, value){
+    if(type === 'store'){
+      if(typeP === null){
+        if(value === 'remove'){
+          window.location.search = ``
+        }else{
+          window.location.search = `?store=${value}`
+        }
+      }else{
+        if(value === 'remove'){
+          window.location.search = `?type=${typeP}`
+        }else{
+          window.location.search = `?store=${value}&type=${typeP}`
+        }
+      }
+    }else if(type === 'type'){
+      if(storeP === null){
+        if(value === 'remove'){
+          window.location.search = ''
+        }else{
+          window.location.search = '?type=' + value
+        }
+      }else{
+        if(value === 'remove'){
+          window.location.search = `?store=${storeP}`
+        }else{ 
+          window.location.search = `?store=${storeP}&type=${value}`
+        }
+      }
+    }
+  }
+
+  window.addEventListener('click', function(e){
+    if(document.getElementById('filter-store-options').style.display === 'flex'){
+      if(e.srcElement.nonce !== 'store-filter'){
+        document.getElementById('filter-store-options').style.display = 'none'
+        document.getElementById('filter-store-icon').style.transform = 'rotate(0deg)'
+      }
+    }
+    if(document.getElementById('filter-price-options').style.display === 'flex'){
+      if(e.srcElement.nonce !== 'price-filter'){
+        document.getElementById('filter-price-options').style.display = 'none'
+        document.getElementById('filter-price-icon').style.transform = 'rotate(0deg)'
+      }
+    }
+  })
+
+  function visibleFilter(filter){
+    if(filter === 'store'){
+      document.getElementById('filter-store-options').style.display = 'flex'
+      document.getElementById('filter-store-icon').style.transform = 'rotate(-90deg)'
+    }else if(filter === 'price'){
+      document.getElementById('filter-price-options').style.display = 'flex'
+      document.getElementById('filter-price-icon').style.transform = 'rotate(-90deg)'
+    }
+  }
+
   return (
     <div className="SearchPage">
       <div className='search-value'>
@@ -136,46 +204,74 @@ function updataPriceValue(newCoin){
               <option value={'EUR'}>Euro (EUR - €) </option>
             </select>
           </div>
+          <h4>Filtros: {typeP !== null && (<div> type: {typeP} <LuXCircle onClick={(e) => updataFilter('type', 'remove')} color='#D43A3A'/></div>)} {storeP !== null && (<div> Store: {storeP} <LuXCircle onClick={(e) => updataFilter('store', 'remove')} color='#D43A3A'/></div>)}</h4>
+          <div className='search-filter' >
+            <div nonce='store-filter' onClick={()=> visibleFilter('store')} className='filter-store' id='filter-store'>
+              <div nonce='store-filter' className='filter-store-text'> <p nonce='store-filter'>Loja</p> <LuChevronLeft nonce='store-filter' id='filter-store-icon'/></div>
+
+              <div nonce='store-filter' className='filter-store-options' id='filter-store-options'>
+                <div className='filter-store-options-triangulo'></div>
+                <button onClick={()=> updataFilter('store', 'epic')} nonce='store-filter'>Epic Games</button>
+                <button onClick={()=> updataFilter('store', 'steam')} nonce='store-filter'>Steam </button>
+              </div>
+            </div>
+            <div nonce='price-filter' onClick={()=> visibleFilter('price')} className='filter-store' id='filter-price'>
+              <div nonce='price-filter' className='filter-store-text'> <p nonce='price-filter'>Preços</p> <LuChevronLeft nonce='price-filter' id='filter-price-icon'/></div>
+
+              <div nonce='price-filter' className='filter-store-options' id='filter-price-options'>
+                <div className='filter-store-options-triangulo'></div>
+                <button onClick={()=> updataFilter('type', 'free')} nonce='price-filter'>Gratís</button>
+                <button onClick={()=> updataFilter('type', 'soon')} nonce='price-filter'>Em breve </button>
+                <button onClick={()=> updataFilter('type', 'pays')} nonce='price-filter'> +0,99 {window.localStorage.getItem("coin")} </button>
+                <button onClick={()=> updataFilter('type', 'all')} nonce='price-filter'> Todos </button>
+              </div>
+            </div>
+          </div>
       </div>
       <div className='search-results'>
-        <div className='results-steam'>
-          <h1>Steam:</h1>
-          <div className='results-list'>
-            {steamResultsStats === 'coming-soon' && (
-              <div className='result-error'>
-                <h4><LuAnnoyed/> {lang.SteamNotFunction }</h4>
-              </div> 
-            )}
+        
+        {storeP === 'steam' && (
+          <div className='results-steam'>
+            <h1>Steam:</h1>
+            <div className='results-list'>
+              {steamResultsStats === 'coming-soon' && (
+                <div className='result-error'>
+                  <h4><LuAnnoyed/> {lang.SteamNotFunction }</h4>
+                </div> 
+              )}
+            </div>
           </div>
-        </div>
-        <div className='results-epic'>
-          <h1>Epic games: </h1>
-          <div className='results-list'>
-            {epicResultsStats === 'error' && (
-              <div className='result-error'>
-                <h4>{lang.ErrorMsgPart1 }<LuAlertTriangle/> <br/> {lang.ErrorMsgPart2 } </h4>
-              </div> 
-            )}
-            {epicResultsStats === 'sucess' && (
-              <>
-                {epicResults.map((epicResults) => <EpicGamesDisplay key={epicResults.title} item={epicResults} />)}
-              </>
-            )}
-            {epicResultsStats === 'notFound' && (
-              <div className='result-loading'>
-                 <h2><LuSearchSlash /> {lang.notFoundGame }</h2>
-                  
-              </div> 
-            )}
-            {epicResultsStats === 'loading' && (
-              <div className='result-loading'>
-                 <h2>{lang.Loading }</h2>
-                  <div className="result-loader"></div>
-              </div> 
-            )}
+        )}
+        {storeP === 'epic' && (
+          <div className='results-epic'>
+            <h1>Epic games: </h1>
+            <div className='results-list'>
+              {epicResultsStats === 'error' && (
+                <div className='result-error'>
+                  <h4>{lang.ErrorMsgPart1 }<LuAlertTriangle/> <br/> {lang.ErrorMsgPart2 } </h4>
+                </div> 
+              )}
+              {epicResultsStats === 'sucess' && (
+                <>
+                  {epicResults.map((epicResults) => <EpicGamesDisplay key={epicResults.title} item={epicResults} />)}
+                </>
+              )}
+              {epicResultsStats === 'notFound' && (
+                <div className='result-loading'>
+                  <h2><LuSearchSlash /> {lang.notFoundGame }</h2>
+                    
+                </div> 
+              )}
+              {epicResultsStats === 'loading' && (
+                <div className='result-loading'>
+                  <h2>{lang.Loading }</h2>
+                    <div className="result-loader"></div>
+                </div> 
+              )}
+            </div>
           </div>
-        </div>
-
+        )}
+      
       </div>
     </div>
   );

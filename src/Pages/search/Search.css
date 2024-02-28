@@ -12,7 +12,9 @@
     background-color: #1d1d1d;
     border-radius: 15px;
     width: 80vw;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 10px;
     grid-gap: 5px;
 }
@@ -20,6 +22,24 @@
     text-decoration: none;
     color: #D43A3A;
 }
+.search-value h4 {
+    margin: 5px 0 5px 0;
+    display: flex;
+}
+.search-value h4 div {
+    background-color: #161616;
+    margin-inline: 5px;
+    display: flex;
+    grid-gap: 5px;
+    padding-inline: 5px;
+}
+.search-value h4 div svg {
+   cursor: pointer;
+   transition: 0.1s;
+}
+.search-value h4 div svg:hover {
+    transform: scale(1.05);
+ }
 .search-results {
     background-color: #1d1d1d;
     width: 80vw;
@@ -36,6 +56,73 @@
     background-color: #2A2A2A;
     color: #fff;
     border-radius: 5px;
+}
+.search-filter {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: #161616;
+    padding: 2px;
+    grid-gap: 2px;
+    width: auto;
+}
+.filter-store {
+    width: 150px;
+    height: 100%;
+    background-color: #2A2A2A;
+    cursor: pointer;
+}
+.filter-store-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+}
+.filter-store-text p {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+.filter-store svg {
+    width: 30%;
+    font-size: 20px;
+    height: 30px;
+    transition: 0.1s;
+    
+}
+
+.filter-store-options {
+    display: none;
+    background-color: #2A2A2A;
+    position: relative;
+    width: 150px;
+    top: 15px;
+    border-radius: 10px;
+    flex-direction: column;
+    padding-top:  5px;
+}
+.filter-store-options button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 10px 0 10px 0;
+}
+.filter-store-options button:hover {
+    background-color: #1d1d1d;
+}
+.filter-store-options-triangulo {
+    width: 0; 
+    height: 0; 
+    transform: scale(0.45);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid #2A2A2A;
+    position: absolute;
+    top: -15px;
+    left: 10px;
 }
 .result-error {
     width: 100%;
