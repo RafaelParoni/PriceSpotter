@@ -10,6 +10,7 @@ import { Languages } from '../../exports';
 
 import { useState } from 'react';
 
+
 function SearchPage() {
 
   var langL = window.localStorage.getItem('lang')
@@ -30,6 +31,10 @@ function SearchPage() {
   var searchValue = window.location.pathname
   var searchValue2 = window.location.pathname.indexOf('/search/')
   searchValue = searchValue.slice(searchValue2 + 8, searchValue.length)
+
+  const urlParams = new URLSearchParams(window.location.search);
+  var storeP = urlParams.get("store")
+  const typeP = urlParams.get("type")
 
   if(searchValue === ''){window.location = `/${window.localStorage.getItem("lang")}/` }
 
@@ -69,8 +74,6 @@ function SearchPage() {
     )
 
     var GameNameValue = item.title
-
-
     GameNameValue = GameNameValue.trim()
     if(GameNameValue.includes(" ")){
         var i = 0
@@ -100,12 +103,12 @@ function SearchPage() {
 
       if(jogoData > AtualData){
         id = 'soon'
-        var DiscountDiv = (
+        DiscountDiv = (
           <p> <LuCarrot /> Em Breve</p>
         )
       }else{
         id = 'free'
-        var DiscountDiv = (
+        DiscountDiv = (
           <p> <LuBanana/> Gratís</p>
         )
       }
@@ -113,36 +116,124 @@ function SearchPage() {
       if(DiscoutNum > 0){
         if(DiscoutNum === ValorNum){
           id = 'free'
-          var DiscountDiv = (
+          DiscountDiv = (
             <p> <LuBanana/> Gratís</p>
           )
         }else{
           id = 'discount'
-          var DiscountDiv = (
+          DiscountDiv = (
             <p> <LuBanana/> <sup> <del> {item.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b className='price-discout'> {Discout} </b> </p>
           )
         }
       }else{
         id = 'pay'
-        var DiscountDiv = (
+        DiscountDiv = (
           <p> <LuApple /> {item.price.totalPrice.fmtPrice.originalPrice}</p>
         )
       }
     }
 
-    return (
-      <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
-          <div className="card-img"> 
-            <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
-          </div>
-          <div className="card-title">
-            <h3>{item.title} </h3>
-          </div>
-          <div className="card-price"> 
-            {DiscountDiv}
-          </div>
-      </div>
-    )
+    if(typeP !== null){
+      switch(typeP){
+        case 'free':
+          if(id === 'free'){
+            return (
+              <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
+                  <div className="card-img"> 
+                    <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
+                  </div>
+                  <div className="card-title">
+                    <h3>{item.title} </h3>
+                  </div>
+                  <div className="card-price"> 
+                    {DiscountDiv}
+                  </div>
+              </div>
+            )
+          }
+        break;
+        case 'pays':
+          if(id === 'pay'){
+            return (
+              <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
+                  <div className="card-img"> 
+                    <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
+                  </div>
+                  <div className="card-title">
+                    <h3>{item.title} </h3>
+                  </div>
+                  <div className="card-price"> 
+                    {DiscountDiv}
+                  </div>
+              </div>
+            )
+          }
+        break;
+        case 'soon':
+          if(id === 'soon'){
+            return (
+              <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
+                  <div className="card-img"> 
+                    <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
+                  </div>
+                  <div className="card-title">
+                    <h3>{item.title} </h3>
+                  </div>
+                  <div className="card-price"> 
+                    {DiscountDiv}
+                  </div>
+              </div>
+            )
+          }
+        break;
+        case 'discount':
+          if(id === 'discount'){
+            return (
+              <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
+                  <div className="card-img"> 
+                    <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
+                  </div>
+                  <div className="card-title">
+                    <h3>{item.title} </h3>
+                  </div>
+                  <div className="card-price"> 
+                    {DiscountDiv}
+                  </div>
+              </div>
+            )
+          }
+        break;
+        default:
+          return (
+            <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
+                <div className="card-img"> 
+                  <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
+                </div>
+                <div className="card-title">
+                  <h3>{item.title} </h3>
+                </div>
+                <div className="card-price"> 
+                  {DiscountDiv}
+                </div>
+            </div>
+          )
+      }
+    }else{
+      return (
+        <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
+            <div className="card-img"> 
+              <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
+            </div>
+            <div className="card-title">
+              <h3>{item.title} </h3>
+            </div>
+            <div className="card-price"> 
+              {DiscountDiv}
+            </div>
+        </div>
+      )
+    }
+
   }
 
   function updataPriceValue(newCoin){
@@ -156,12 +247,10 @@ function SearchPage() {
   window.location.reload()
   }
 
-  const urlParams = new URLSearchParams(window.location.search);
-  var storeP = urlParams.get("store")
+  
   if(storeP === null){
     storeP = 'epic'
   }
-  const typeP = urlParams.get("type")
 
   function updataFilter(type, value){
     if(type === 'store'){
@@ -252,6 +341,7 @@ function SearchPage() {
                 <div className='filter-store-options-triangulo'></div>
                 <button onClick={()=> updataFilter('type', 'free')} nonce='price-filter'>Gratís</button>
                 <button onClick={()=> updataFilter('type', 'soon')} nonce='price-filter'>Em breve </button>
+                <button onClick={()=> updataFilter('type', 'discount')} nonce='price-filter'>Promoção </button>
                 <button onClick={()=> updataFilter('type', 'pays')} nonce='price-filter'> +0,99 {window.localStorage.getItem("coin")} </button>
                 <button onClick={()=> updataFilter('type', 'all')} nonce='price-filter'> Todos </button>
               </div>
