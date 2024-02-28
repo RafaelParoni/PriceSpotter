@@ -1,7 +1,7 @@
 import './Search.css';
 
 
-import { LuSearch, LuInfo, LuXCircle, LuChevronLeft, LuAlertTriangle, LuSearchSlash, LuBanana, LuApple, LuAnnoyed   } from "react-icons/lu";
+import { LuSearch, LuInfo, LuXCircle, LuChevronLeft, LuCarrot, LuAlertTriangle, LuSearchSlash, LuBanana, LuApple, LuAnnoyed   } from "react-icons/lu";
 
 // import { SteamSearchGames } from '../../Components/Steam/steamStoreApi';
 import { EpicGamesStoreApi } from '../../Components/Epic Games/epicStoreApi';
@@ -67,20 +67,6 @@ function SearchPage() {
     var DiscountDiv = (
       <p> <LuApple /> {item.price.totalPrice.fmtPrice.originalPrice}</p>
     )
-    if(item.currentPrice !== item.price.totalPrice.discountPrice){
-      DiscountDiv = (
-        <p style={{flexDirection: 'column'}}>
-          <p className='discount'> <small style={{color: '#6e6e6e'}}> <del>{item.price.totalPrice.fmtPrice.originalPrice} </del> </small></p> <p> <LuBanana /> {item.price.totalPrice.fmtPrice.discountPrice} </p>
-        </p>
-      )
-    }
-    if(item.currentPrice === 0){
-      DiscountDiv = (
-          <p>
-           {lang.GameNotSale }
-          </p>
-      )
-    }
 
     var GameNameValue = item.title
 
@@ -98,8 +84,54 @@ function SearchPage() {
   
     }
 
+    var id = ''
+    var valor = item.price.totalPrice.originalPrice
+    var Discout = item.price.totalPrice.fmtPrice.discountPrice
+    var DiscoutNum = item.price.totalPrice.discount
+    var ValorNum = item.currentPrice
+
+    if(valor === 0){
+      // Verificar se é free ou Coming soon
+      var jogoData = item.effectiveDate
+      jogoData = jogoData.slice(0,4)
+      jogoData = Number(jogoData)
+      
+      var AtualData = new Date().getFullYear()
+
+      if(jogoData > AtualData){
+        id = 'soon'
+        var DiscountDiv = (
+          <p> <LuCarrot /> Em Breve</p>
+        )
+      }else{
+        id = 'free'
+        var DiscountDiv = (
+          <p> <LuBanana/> Gratís</p>
+        )
+      }
+    }else{
+      if(DiscoutNum > 0){
+        if(DiscoutNum === ValorNum){
+          id = 'free'
+          var DiscountDiv = (
+            <p> <LuBanana/> Gratís</p>
+          )
+        }else{
+          id = 'discount'
+          var DiscountDiv = (
+            <p> <LuBanana/> <sup> <del> {item.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b className='price-discout'> {Discout} </b> </p>
+          )
+        }
+      }else{
+        id = 'pay'
+        var DiscountDiv = (
+          <p> <LuApple /> {item.price.totalPrice.fmtPrice.originalPrice}</p>
+        )
+      }
+    }
+
     return (
-      <div onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
+      <div id={id} onClick={()=> {window.location = `/${window.localStorage.getItem('lang')}/game/details/epic/${GameNameValue}`}} className='results-card'>
           <div className="card-img"> 
             <img alt={`Img-card: ${item.title}`} src={item.keyImages[2].url} />
           </div>
@@ -123,9 +155,6 @@ function SearchPage() {
   }
   window.location.reload()
   }
-
-
-  var [storeResult, setStoreResult] = useState('epic')
 
   const urlParams = new URLSearchParams(window.location.search);
   var storeP = urlParams.get("store")
@@ -165,6 +194,7 @@ function SearchPage() {
       }
     }
   }
+
 
   window.addEventListener('click', function(e){
     if(document.getElementById('filter-store-options').style.display === 'flex'){

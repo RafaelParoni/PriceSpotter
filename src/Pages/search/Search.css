@@ -157,27 +157,24 @@
     100%{transform: rotate(1turn)}
 }
 .results-steam {
-    width: 30%;
+    width: 100%;
 }
 .results-epic {
-    width: 70%;
-    border-left: 1px solid #D43A3A;
+    width: 100%;
     padding-left: 10px;
 }
 .results-list {
     grid-gap: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
-
 
 .results-card {
     margin-bottom: 10px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #2A2A2A;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -185,8 +182,8 @@
     transition: 0.5s;
 }
 .results-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0px 0px 10px 1px #D43A3A;
+    transform: translatey(-5px);
+    box-shadow: 0px 2px 1px 0px #D43A3A;
 }
     
 .card-img { 
