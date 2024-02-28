@@ -1,10 +1,12 @@
 import './Game.css';
 
-import { LuCherry, LuX, LuChevronLeft, LuStore, LuChevronRight, LuApple, LuBanana, LuCandyCane, LuCandy      } from "react-icons/lu";
+import { LuCherry, LuX, LuChevronLeft, LuStore, LuChevronRight, LuExternalLink , LuApple, LuBanana, LuCandyCane, LuCandy      } from "react-icons/lu";
 
 import { useState } from 'react';
 
 import { EpicGamesStoreApi } from '../../Components/Epic Games/epicStoreApi';
+
+import epicLogo from './../../Imgs/epic_logo.png'
 
 
 function GamePage() {
@@ -183,7 +185,9 @@ function GamePage() {
                 <h3>Preços:</h3>
                 <h4> <LuCandy /> Epic Games:</h4>
                 <div id='info-price-epic' className='info-price'>
-                   <h3 id='price-value-epic'> Carregando</h3>
+                   <h3 id='price-value-epic'> Carregando</h3> -
+
+                   <button onClick={()=> window.open(epicResults.url)} className='epicButton'> <img src={epicLogo} />EPIC GAMES <LuExternalLink /></button>
                 </div>
               </div>
             </>

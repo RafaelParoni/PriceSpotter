@@ -96,6 +96,20 @@
 .price-discout   {
     color: #D43A3A;
 }
+.epicButton  {
+    height: 35px;
+    grid-gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.epicButton img {
+    height: 35px;
+}
 .games-img-views {
     display: none;
     filter: opacity(0);
