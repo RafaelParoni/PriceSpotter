@@ -129,23 +129,23 @@ function GamePage() {
       if(jogoData > AtualData){
         setTimeout(function(){
           document.getElementById('price-value-epic').innerHTML = ` EM BREVE`
-        },100)
+        },500)
       }else{
         setTimeout(function(){
           document.getElementById('price-value-epic').innerHTML = ` GRATÍS`
-        },100)
+        },500)
       }
     }else{
       if(DiscoutNum > 0){
         if(DiscoutNum === ValorNum){
           setTimeout(function(){
             document.getElementById('price-value-epic').innerHTML = `GRATÍS `
-          },100)
+          },500)
         }else{
           setTimeout(function(){
             document.getElementById('discontTtile').style.display = 'flex'
             document.getElementById('price-value-epic').innerHTML = `<sup> <del> ${jogo.price.totalPrice.fmtPrice.originalPrice} </del>  </sup> <b class='price-discout'> ${Discout} </b> `
-          },100)
+          },500)
         }
       }else{
         setTimeout(function(){
