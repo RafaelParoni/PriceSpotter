@@ -24,11 +24,28 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             'NotFoundLinks': 'não há nenhum link.',
         },
         "Search": {
-            "GameNotSale":"Não esta a venda ou é gratís",
 
+            // cards
+            'CardsSoon':'Em breve ',
+            'CardsFree':'Gratís',
+
+
+            // options
             "SearchInfo":" Pesquisa dos jogos baseada nas lojas ",
 
             "PriceCoin":"Moeda",
+            
+            'Filter': 'Filtros',
+            'Price': 'Preço',
+            'Store': 'Loja',
+            'FilterStore': 'Loja',
+
+            'FilterPrice': 'Preço',
+            'PriceFree':'Gratís',
+            'PriceSoon':'Não lançados',
+            'PriceDiscount':'Promoção',
+            'PricePays':'Pagos',
+            'PriceAll':'Todos',
 
             //Steam
             "SteamNotFunction":"Pequisa pelo Steam ainda não esta disponivel :c",
@@ -65,11 +82,28 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             'NotFoundLinks': 'there is no link.',
         },
         "Search": {
-            "GameNotSale":"It is not for sale or is it free",
+            // cards
+            'CardsSoon':'Coming soon ',
+            'CardsFree':'Free',
 
-            "SearchInfo":" Game search based on stores: ",
+
+            // options
+            "SearchInfo":" Game search based on stores:  ",
 
             "PriceCoin":"Coin",
+            
+            'Filter': 'Filters',
+            'Price': 'Price',
+            'Store': 'Store',
+
+            'FilterStore': 'Store',
+            'FilterPrice': 'Price',
+
+            'PriceFree':'Free',
+            'PriceSoon':'Coming soon',
+            'PriceDiscount':'Promotion',
+            'PricePays':'Paid',
+            'PriceAll':'All',
 
             //Steam
             "SteamNotFunction":"Steam search is not yet available :c",
@@ -106,11 +140,27 @@ var Languages = { // Traduções de paginas para EN, PT e ES
             'NotFoundLinks': 'no hay ningún vínculo.',
         },
         "Search": {
-            "GameNotSale":"No está a la venta o es gratis",
+            // cards
+            'CardsSoon':'Proximamente',
+            'CardsFree':'Gratis',
 
-            "SearchInfo":" Búsqueda de juegos basada en tiendas: ",
+
+            // options
+            "SearchInfo":" Búsqueda de juegos basada en tiendas:  ",
 
             "PriceCoin":"Moneda",
+            
+            'Filter': 'Filtros',
+            'Price': 'Precio',
+            'Store': 'almacenar',
+            'FilterStore': 'almacenar',
+
+            'FilterPrice': 'Precio',
+            'PriceFree':'Gratis',
+            'PriceSoon':'Proximamente',
+            'PriceDiscount':'Descuentos',
+            'PricePays':'Pagado',
+            'PriceAll':'Todo',
 
             //Steam
             "SteamNotFunction":"La búsqueda de Steam aún no está disponible :c",
