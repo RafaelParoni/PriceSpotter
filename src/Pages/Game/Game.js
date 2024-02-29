@@ -1,6 +1,6 @@
 import './Game.css';
 
-import { LuCherry, LuX, LuChevronLeft, LuStore, LuChevronRight, LuExternalLink , LuApple, LuBanana, LuCandyCane, LuCandy      } from "react-icons/lu";
+import { LuCherry, LuX, LuChevronLeft, LuStore, LuChevronRight, LuCupSoda, LuExternalLink, LuBanana, LuCandy      } from "react-icons/lu";
 
 import { useState } from 'react';
 
@@ -28,6 +28,22 @@ function GamePage() {
   if(detailsValue.includes('%C2%AE')){
     detailsValue = detailsValue.replace('%C2%AE', '')
   }
+
+  var detailsValueText = detailsValue
+  if(detailsValueText.includes("-")){
+    var i = 0
+    while(i < 5){
+      detailsValueText = detailsValueText.replace('-', ' ')
+
+      if(!detailsValueText.includes("-")){
+        i++
+      }
+    }
+
+  }
+  document.title = `${detailsValueText} - Price Games`
+  
+  console.log(detailsValueText)
 
   if(detailsValue === ''){window.location = `/${window.localStorage.getItem("lang")}/` }
 
@@ -169,7 +185,7 @@ function GamePage() {
     <>
       <div className="gamePage">
         <div className='game-info'>
-            <h2> <LuCherry/> {detailsValue}  <sup style={{display: 'none'}} id='discontTtile'> <p>  <LuBanana /> Tem desconto! </p></sup></h2>
+            <h2> <LuCherry/> {detailsValueText}  <sup style={{display: 'none'}} id='discontTtile'> <p>  <LuBanana /> Tem desconto! </p></sup></h2>
         </div>
         <div className='game-details'>
           {epicResultsStats === 'sucess' && (
@@ -187,7 +203,11 @@ function GamePage() {
                 <div id='info-price-epic' className='info-price'>
                    <h3 id='price-value-epic'> Carregando</h3> -
 
-                   <button onClick={()=> window.open(epicResults.url)} className='epicButton'> <img src={epicLogo} />EPIC GAMES <LuExternalLink /></button>
+                   <button onClick={()=> window.open(epicResults.url)} className='epicButton'> <img alt='epic games logo' src={epicLogo} />EPIC GAMES <LuExternalLink /></button>
+                </div>
+                <h4> <LuCandy /> Steam:</h4>
+                <div id='info-price-steam' className='info-price'>
+                <h3 id='price-value-steam'> <LuCupSoda /></h3>
                 </div>
               </div>
             </>

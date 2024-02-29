@@ -31,6 +31,21 @@ function SearchPage() {
   var searchValue = window.location.pathname
   var searchValue2 = window.location.pathname.indexOf('/search/')
   searchValue = searchValue.slice(searchValue2 + 8, searchValue.length)
+  var searchValueText = searchValue
+  if(searchValueText.includes("-")){
+    var i = 0
+    while(i < 5){
+      searchValueText = searchValueText.replace('-', ' ')
+
+      if(!searchValueText.includes("-")){
+        i++
+      }
+    }
+
+  }
+  document.title = `${searchValueText} - Price Games`
+  
+  console.log(searchValueText)
 
   const urlParams = new URLSearchParams(window.location.search);
   var storeP = urlParams.get("store")
@@ -313,7 +328,7 @@ function SearchPage() {
   return (
     <div className="SearchPage">
       <div className='search-value'>
-          <h3><LuSearch/> {searchValue}</h3>
+          <h3><LuSearch/> {searchValueText}</h3>
           <p><LuInfo/> {lang.SearchInfo} <a href='https://store.epicgames.com/pt-BR/'>EPIC GAMES</a> & <del><a href='https://store.steampowered.com/'>STEAM</a> </del></p>
           <div className='search-price'>
             <p>{lang.PriceCoin }:</p>
