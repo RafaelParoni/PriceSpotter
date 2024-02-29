@@ -65,9 +65,10 @@ function HomePage() {
           setDescription01(result)
         }
       })
+      
     return (
         <div onClick={()=> window.open(item.appUrl)}> 
-          <img alt='Game free - store.epicgames.com' src={item.offerImageWide} />
+          <img alt='Game free - store.epicgames.com' src={item.offerImageTall} />
           <h4>{langA.EpicCardFree}</h4>
           <h2>{item.name}</h2> 
           <h5>{descirption01}</h5> 
@@ -83,9 +84,10 @@ function HomePage() {
         setDescription02(result)
       }
     })
+    
     return (
       <div onClick={()=> window.open(item.appUrl)}> 
-        <img alt='Game free coming soon - store.epicgames.com' src={item.offerImageTall} /> 
+        <img alt='Game free coming soon - store.epicgames.com' src={item.offerImageWide} /> 
         <h4>{langA.EpicCardComing}</h4>
         <h2>{item.name}</h2> 
         <h5>{descirption02} </h5>
