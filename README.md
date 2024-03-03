@@ -1,13 +1,9 @@
 <h1 align="center">PriceGame</h1>
 
-<h3 align="center">  Localizador de Jogos, Comparador de Preços e notícias  de jogos </h3>
+<h3 align="center">  Aplicação web desenvolvida com as tecnologias React JS, Node. com integração em API utilizando Axios, para mostrar ao usuário jogos similares a sua busca e suas informações. </h3>
+
+![ScreenShot 1](./Screenshot_2.png)
+![ScreenShot 2](./Screenshot_1.png)
 
 
-
-
-<h5> Site em demo, para ativar o demo cole no console do site o seguinte comando: window.localStorage.setItem('demo', 'DEMO-ACTIVATED') </h5>
-
-<h5> Para sair da demo basta colocar o comando novamente sem o Código: window.localStorage.setItem('demo', ' ') </h5>
-
-
-<h6>Version: 0.8.0 </h6>
+<h6>Version: 1.0.0 </h6>
